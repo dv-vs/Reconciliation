@@ -5,8 +5,70 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Reconciliation"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="Сверка транзакций" Height="450" Width="800">
     <Grid>
-        
+        <!--<Grid.RowDefinitions>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Button Grid.Column="0" Grid.Row="0" Content="Строка 0 Столбец 0"  />
+        <Button Grid.Column="0" Grid.Row="1" Content="Объединение трех столбцов" Grid.ColumnSpan="3"  />
+        <Button Grid.Column="2" Grid.Row="2" Content="Строка 2 Столбец 2"  />-->
+        <TabControl>
+            <TabItem Name="Analysys">
+                <TabItem.Header>
+                    <StackPanel Orientation="Horizontal">
+                        <Ellipse Height="10" Width="10" Fill="Aqua" />
+                        <TextBlock Margin="6" >Анализ</TextBlock>
+                    </StackPanel>
+                </TabItem.Header>
+                <Grid ShowGridLines="True">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="0.2*"></RowDefinition>
+                        <RowDefinition Height="*"></RowDefinition>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition></ColumnDefinition>
+                        <ColumnDefinition></ColumnDefinition>
+                        <ColumnDefinition></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+                </Grid>
+            </TabItem>
+            <TabItem Name="BaseImport">
+                <TabItem.Header>
+                    <StackPanel Orientation="Horizontal">
+                        <Ellipse Height="10" Width="10" Fill="Azure"/>
+                        <TextBlock Text="Базовый импорт" Margin="6" />
+                    </StackPanel>
+                </TabItem.Header>
+                <Grid Name="BaseImport_Common" ShowGridLines="True">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="0.2*"/>
+                        <RowDefinition />
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="0.3*" />
+                        <ColumnDefinition />
+                    </Grid.ColumnDefinitions>
+
+                    <TextBlock Grid.Column="0" Grid.Row="0"  Text="Укажите каталог:" FontSize="16" Margin="10" VerticalAlignment="Center"/>
+                         
+                    
+                    <DockPanel Grid.Column="1" Grid.Row="0"   >
+                        <Button DockPanel.Dock="Right" MinWidth="25" Content="..." />
+                        <TextBox />
+                        
+                    </DockPanel>
+                </Grid>
+            </TabItem>
+            <TabItem Name="PaySystemImport">
+            </TabItem>
+        </TabControl>
     </Grid>
 </Window>
