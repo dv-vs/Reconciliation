@@ -116,6 +116,10 @@
       <Project>{FB648EB9-0454-4096-9876-54699D4A14A3}</Project>
       <Name>BD.DAL</Name>
     </ProjectReference>
+    <ProjectReference Include="..\ExcelSynchronizer\ExcelHelper.csproj">
+      <Project>{BB509A4B-2E68-45FB-88F3-3818A2AAF222}</Project>
+      <Name>ExcelHelper</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

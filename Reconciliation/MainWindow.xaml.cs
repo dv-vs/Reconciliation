@@ -15,6 +15,7 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.IO;
 using Reconciliation.Models;
+using ExcelHelper;
 
 namespace Reconciliation
 {
@@ -37,21 +38,32 @@ namespace Reconciliation
             if (dialog.ShowDialog() == CommonFileDialogResult.Ok)
             {
                 BaseExcelCatalog.Text = dialog.FileName;
-                var files = Directory.GetFiles(dialog.FileName).Select(x => new FileForImport { Download = true, Filename = x});
-                BaseImportFiles.ItemsSource = files;
+                //var files = Directory.GetFiles(dialog.FileName, "*.xls?").Select(x => new FileForImport { Download = true, Filename = x});
+                var files = Directory.GetFiles(dialog.FileName).Where(x => x.EndsWith(".xls") || x.EndsWith(".xlsx")).Select(x => new FileForImport { Download = true, Filename = x });
+                BaseImportFiles.ItemsSource = new ListCollectionView (files.ToList());
             }
 
         }
 
         private void DownloadFiles(object sender, RoutedEventArgs e)
         {
-            if (string.IsNullOrWhiteSpace(BaseExcelCatalog.Text))
-                MessageBox.Show("Не выбран каталог загрузки");
+            //if (string.IsNullOrWhiteSpace(BaseExcelCatalog.Text))
+            //    MessageBox.Show("Не выбран каталог загрузки");
+            var chosenFiles = new List<string>();
+            foreach (var item in BaseImportFiles.Items)
+            {
+                var fileForImport = item as FileForImport;
+                if (fileForImport != null && fileForImport.Download)
+                    chosenFiles.Add(fileForImport.Filename);
+            }
+
+            if (chosenFiles.Count > 0)
+                new ExcelSynchronizer(chosenFiles).Execute();
+            else
+                MessageBox.Show("Нечего грузить");
+
         }
 
-        private void DataGrid_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-
-        }
+       
     }
 }
