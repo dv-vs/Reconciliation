@@ -44,7 +44,7 @@
                 <TabItem.Header>
                     <StackPanel Orientation="Horizontal">
                         <Ellipse Height="10" Width="10" Fill="Azure"/>
-                        <TextBlock Text="Базовый импорт" Margin="6" />
+                        <TextBlock Text="Базовый импорт (Excel)" Margin="6" />
                     </StackPanel>
                 </TabItem.Header>
                 <Grid Name="BaseImport_Common" ShowGridLines="True">
@@ -57,14 +57,23 @@
                         <ColumnDefinition />
                     </Grid.ColumnDefinitions>
 
-                    <TextBlock Grid.Column="0" Grid.Row="0"  Text="Укажите каталог:" FontSize="16" Margin="10" VerticalAlignment="Center"/>
+                    <TextBlock Grid.Column="0" Grid.Row="0" Text="Укажите каталог:" FontSize="16" Margin="10" VerticalAlignment="Center"/>
                          
                     
                     <DockPanel Grid.Column="1" Grid.Row="0"   >
-                        <Button DockPanel.Dock="Right" MinWidth="25" Content="..." />
-                        <TextBox />
-                        
+                        <Button DockPanel.Dock="Right" MinWidth="25" Content="Загрузить"  Click="DownloadFiles"/>
+                        <Button DockPanel.Dock="Right" MinWidth="25" Content="..."  Click="ChooseCatalog"/>
+                        <TextBox FontSize="14"  Name="BaseExcelCatalog" Padding="15" />
+
+
                     </DockPanel>
+                    <DataGrid Name="BaseImportFiles" Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="2" HeadersVisibility="All" HorizontalGridLinesBrush="DarkGray"
+                              RowBackground="LightGray" AlternatingRowBackground="White" AutoGenerateColumns="False" ItemsSource="{Binding}" >
+                        <DataGrid.Columns>
+                            <DataGridCheckBoxColumn Header="v" Binding="{Binding Path=Download}" Width="0.1*"/>
+                            <DataGridTextColumn Header="Имя файла" Binding="{Binding Path=Filename}" Width="*"/>
+                        </DataGrid.Columns>
+                    </DataGrid>
                 </Grid>
             </TabItem>
             <TabItem Name="PaySystemImport">

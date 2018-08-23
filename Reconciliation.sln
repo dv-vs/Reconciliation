@@ -5,6 +5,8 @@ VisualStudioVersion = 15.0.27703.2042
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Reconciliation", "Reconciliation\Reconciliation.csproj", "{26C4EA45-D4AD-4158-9F0D-ABA3AB752324}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BD.DAL", "BD.DAL\BD.DAL.csproj", "{FB648EB9-0454-4096-9876-54699D4A14A3}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{26C4EA45-D4AD-4158-9F0D-ABA3AB752324}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{26C4EA45-D4AD-4158-9F0D-ABA3AB752324}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{26C4EA45-D4AD-4158-9F0D-ABA3AB752324}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FB648EB9-0454-4096-9876-54699D4A14A3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FB648EB9-0454-4096-9876-54699D4A14A3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FB648EB9-0454-4096-9876-54699D4A14A3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FB648EB9-0454-4096-9876-54699D4A14A3}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
