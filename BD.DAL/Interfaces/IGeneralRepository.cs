@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace EvoCafe.DAL.Interfaces
 {
-    public interface IRepository<T> where T: EntityBase
+    public interface IGeneralRepository<T> where T: EntityBase
     {
         IQueryable<T> GetAll();
         IQueryable<T> Get(Expression<Func<T, bool>> predicate);

@@ -10,12 +10,12 @@ using System.Threading.Tasks;
 
 namespace EvoCafe.DAL.Repositories
 {
-    public class BasicRepository<T> : IRepository<T> where T : EntityBase
+    public class GeneralRepository<T> : IGeneralRepository<T> where T : EntityBase
     {
         protected DbSet<T> _dbSet;
         DbContext _dbContext;
 
-        public BasicRepository(BDContext cafeContext)
+        public GeneralRepository(BDContext cafeContext)
         {
             _dbSet     = cafeContext.Set<T>();
             _dbContext = cafeContext;
@@ -51,9 +51,7 @@ namespace EvoCafe.DAL.Repositories
 
         public void Update(T item)
         {
-            //_dbContext.Entry(item).State = EntityState.Modified;
-            //_dbSet.Attach(item);
-            _dbSet.AddOrUpdate(item);
+            _dbContext.Entry(item).State = EntityState.Modified;
         }
     }
 }

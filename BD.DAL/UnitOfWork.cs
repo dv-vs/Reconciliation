@@ -39,13 +39,13 @@ namespace EvoCafe.DAL
 
         
 
-        public IRepository<T> Repository<T>() where T : EntityBase
+        public IGeneralRepository<T> GeneralRepository<T>() where T : EntityBase
         {
             if (repositories.Keys.Contains(typeof(T)) == true)
             {
-                return repositories[typeof(T)] as IRepository<T>;
+                return repositories[typeof(T)] as IGeneralRepository<T>;
             }
-            IRepository<T> repo = new BasicRepository<T>(_dbContext);
+            IGeneralRepository<T> repo = new GeneralRepository<T>(_dbContext);
             repositories.Add(typeof(T), repo);
             return repo;
         }
